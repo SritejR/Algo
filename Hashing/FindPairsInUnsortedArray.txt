@@ -1,0 +1,27 @@
+/*
+The idea here is to use HashSet, here if we are at ith position of array we check if "sum-array[i]" is already in HashSet if present then arr[i and sum-arr[i] forms pairs, if not add the ith element in array to HashSet.
+*/
+import java.util.HashSet;
+
+public class PairsInUnsortedArray {
+	
+	public static void findPair(int[] arr,int sum) {
+		HashSet<Integer> hs=new HashSet<Integer>();
+		for(int i=0;i<arr.length;i++) {
+			if(hs.contains(sum-arr[i])) {
+				System.out.println(sum-arr[i]+" & "+arr[i]);
+			}
+			hs.add(arr[i]);
+		}
+
+		
+	}
+	public static void main(String[] args) {
+		
+		int [] arr= {3,2,8,15,-8};   //sum=17  exp o/p = 2,15            2:{11,5,6} sum=10
+//		int [] arr= {11,5,6};  
+		findPair(arr, 10);
+		
+	}
+
+}
